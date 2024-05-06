@@ -1,0 +1,2 @@
+SELECT MAX(watermark_timestamp)
+FROM auditing_watermark

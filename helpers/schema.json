@@ -1,0 +1,22 @@
+{
+  "name": "transcation",
+  "type": "record",
+  "fields": [
+    {
+      "name": "customer_id",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "type": "double"
+    },
+    {
+      "name": "currency",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "string"
+    }
+  ]
+}
