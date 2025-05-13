@@ -52,13 +52,6 @@ transactions = [
 
 ]
 
-email_config = {
-    "sender_email": 'alerts_kiril_demo@proton.me',
-    "sender_password": 'demo123demo',
-    "recipient_email": 'kiril_demo_email@proton.me',
-    "subject": 'Alert: Potential Data Loss between Source and Kafka ...',
-}
-
 admin_client = AdminClient(KAFKA_CONFIG)
 
 topic_metadata = admin_client.list_topics(topic=topic_name).topics.get(topic_name)
