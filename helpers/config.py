@@ -7,16 +7,21 @@ DB_PARAMS = {
     'dbname': 'postgres',
     'user': 'postgres',
     'password': 'kiko123',
-    'host': '35.242.144.42',
+    'host': 'localhost',
 }
 
-KAFKA_CONFIG = {
+KAFKA_CONFIG_OLD = {
     'bootstrap.servers': 'pkc-l6wr6.europe-west2.gcp.confluent.cloud:9092',
     'bootstrap.servers': 'pkc-l6wr6.europe-west2.gcp.confluent.cloud:9092',
     'security.protocol': 'SASL_SSL',
     'sasl.mechanisms': 'PLAIN',
     'sasl.username': 'E5N6WPW7PIASSHDS',
     'sasl.password': 'lKm4FF9hReq1ZxdfaOsOv00vx+VBoCdUT+6/iREuj4SO9Ca/KADxqGqbIxNh8Ulc'
+}
+
+KAFKA_CONFIG = {
+    'bootstrap.servers': 'localhost:9092',
+    'security.protocol': 'PLAINTEXT',  # No SASL/SSL for local Kafka
 }
 
 CONSUMER = {

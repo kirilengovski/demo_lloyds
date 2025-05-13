@@ -4,7 +4,7 @@ import threading
 
 from confluent_kafka import Producer, Consumer, KafkaError
 
-from helpers.db import insert_into_postgres
+from helpers.db import insert_into_postgres, create_table_if_not_exists
 from helpers.config import CONSUMER, KAFKA_CONFIG, DB_PARAMS, transactions, basic_shema
 from helpers.generate_transactions import generate_transactions
 from threading import Thread
@@ -39,6 +39,9 @@ expected_throughput = 4
 deviation = 2
 
 logging.info("start")
+
+logging.info("Creating table if not exists ...")
+create_table_if_not_exists(DB_PARAMS)
 
 
 def monitor_throughput(interval=10):
