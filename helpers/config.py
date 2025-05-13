@@ -6,7 +6,7 @@ topic_name = "transactions"
 DB_PARAMS = {
     'dbname': 'postgres',
     'user': 'postgres',
-    'password': 'kiko123',
+    'password': '<your_password>',
     'host': 'localhost',
 }
 
