@@ -7,6 +7,7 @@ def create_table_if_not_exists(db_params):
         conn = psycopg2.connect(**db_params)
         cursor = conn.cursor()
         cursor.execute("""
+            DROP TABLE IF EXISTS demo_transactions.transactions;
             CREATE SCHEMA IF NOT EXISTS demo_transactions;
             CREATE TABLE IF NOT EXISTS demo_transactions.transactions (
                 transaction_id VARCHAR(50) PRIMARY KEY,

@@ -1,6 +1,9 @@
+import os
 import json
 import logging
 import threading
+from dotenv import load_dotenv
+load_dotenv(dotenv_path=".env")
 
 from confluent_kafka import Producer, Consumer, KafkaError
 
@@ -14,6 +17,8 @@ from time import time, sleep
 from helpers.validate_schema import validate_schema
 from helpers.enrichment import enrich_data
 import sys
+from dotenv import load_dotenv
+
 
 root_logger = logging.getLogger()
 if root_logger.handlers:

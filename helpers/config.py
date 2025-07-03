@@ -1,13 +1,14 @@
 from confluent_kafka.admin import AdminClient
-
+import os
 
 topic_name = "transactions"
 
 DB_PARAMS = {
-    'dbname': 'postgres',
-    'user': 'postgres',
-    'password': '<your_password>',
-    'host': 'localhost',
+    "user": os.environ.get("DB_USER", "postgres"),
+    "password": os.environ.get("DB_PASSWORD"),
+    "host": os.environ.get("DB_HOST", "localhost"),
+    "port": int(os.environ.get("DB_PORT", 5432)),
+    "database": os.environ.get("DB_NAME", "postgres")
 }
 
 KAFKA_CONFIG_OLD = {
@@ -42,13 +43,13 @@ transactions = [
     {"transaction_id": "007", "amount": 500.25, "currency": "USD", "timestamp": "2024-05-06T12:30:00Z"},
     {"transaction_id": "008", "amount": 1000.50, "currency": "EUR", "timestamp": "2024-05-06T13:45:00Z"},
     # bad currency:
-    {"transaction_id": "008", "amount": 1000.50, "currency": "MKD", "timestamp": "2024-05-06T13:45:00Z"},
-    {"transaction_id": "009", "amount": 750.75, "currency": "GBP", "timestamp": "2024-05-06T15:00:00Z"},
+    {"transaction_id": "009", "amount": 1000.50, "currency": "MKD", "timestamp": "2024-05-06T13:45:00Z"},
+    {"transaction_id": "010", "amount": 750.75, "currency": "GBP", "timestamp": "2024-05-06T15:00:00Z"},
     # schema invalid:
-    {"transaction_id": "012", "country": "North Macedonia", "amount": 750.75, "currency": "GBP", "timestamp": "2024-05-06T15:00:00Z"},
-    {"transaction_id": "010", "amount": 500.25, "currency": "USD", "timestamp": "2024-05-06T12:30:00Z"},
-    {"transaction_id": "011", "amount": 1000.50, "currency": "EUR", "timestamp": "2024-05-06T13:45:00Z"},
-    {"transaction_id": "012", "amount": 750.75, "currency": "GBP", "timestamp": "2024-05-06T15:00:00Z"}
+    {"transaction_id": "011", "country": "North Macedonia", "amount": 750.75, "currency": "GBP", "timestamp": "2024-05-06T15:00:00Z"},
+    {"transaction_id": "012", "amount": 500.25, "currency": "USD", "timestamp": "2024-05-06T12:30:00Z"},
+    {"transaction_id": "013", "amount": 1000.50, "currency": "EUR", "timestamp": "2024-05-06T13:45:00Z"},
+    {"transaction_id": "014", "amount": 750.75, "currency": "GBP", "timestamp": "2024-05-06T15:00:00Z"}
 
 ]
 
